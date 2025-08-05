@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Admin - Garimpos do Gu</title>
+                <link rel="stylesheet" href="style.css">
+                </head>
+                <body class="admin-body">
+                    <div id="login-container">
+                            <h2>Área Administrativa</h2>
+                                    <input type="text" id="username" placeholder="Usuário">
+                                            <input type="password" id="password" placeholder="Senha">
+                                                    <button onclick="login()">Entrar</button>
+                                                            <p id="login-error"></p>
+                                                                </div>
+
+                                                                    <div id="admin-panel" class="hidden">
+                                                                            <h2>Gerenciar Produtos</h2>
+                                                                                    <form id="produto-form">
+                                                                                                <input type="text" id="produto-nome" placeholder="Nome do produto" required>
+                                                                                                            <input type="url" id="produto-link" placeholder="Link do produto" required>
+                                                                                                                        <button type="submit">Adicionar Produto</button>
+                                                                                                                                </form>
+                                                                                                                                        <h3>Lista de Produtos</h3>
+                                                                                                                                                <ul id="lista-produtos"></ul>
+                                                                                                                                                    </div>
+
+                                                                                                                                                        <script src="script.js"></script>
+                                                                                                                                                        </body>
+                                                                                                                                                        </html>

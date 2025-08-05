@@ -1,0 +1,29 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #f9f9f9; color: #333; }
+
+/* HEADER */
+header { background: linear-gradient(45deg, #ff4b2b, #ff416c); color: white; text-align: center; padding: 30px; }
+header h1 { font-size: 3em; }
+
+/* BANNER */
+.banner { display: flex; overflow: hidden; background: #222; color: white; height: 50px; }
+.slide { flex: 1; text-align: center; padding: 10px; animation: slide 9s infinite; }
+@keyframes slide { 0% { transform: translateX(0); } 33% { transform: translateX(-100%); } 66% { transform: translateX(-200%); } }
+
+/* PRODUTOS */
+main { padding: 30px; text-align: center; }
+.produtos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.produto { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+.produto a { display: block; margin-top: 10px; padding: 10px; background: #ff416c; color: white; text-decoration: none; border-radius: 5px; }
+
+/* FOOTER */
+footer { text-align: center; padding: 20px; background: #222; color: white; }
+
+/* ADMIN LOGIN */
+.admin-body { background: #121212; color: white; padding: 30px; }
+#login-container, #admin-panel { max-width: 400px; margin: auto; text-align: center; }
+input, button { width: 100%; padding: 10px; margin: 5px 0; border: none; border-radius: 5px; }
+button { background: #ff416c; color: white; cursor: pointer; }
+.hidden { display: none; }
+ul { list-style: none; }
+ul li { background: #1e1e1e; padding: 10px; margin: 5px 0; border-radius: 5px; }
