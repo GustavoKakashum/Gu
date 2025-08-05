@@ -1,75 +1,12 @@
-let produtos = JSON.parse(localStorage.getItem('produtos')) || [
-  {
-    nome: "Smartphone XYZ",
-    link: "https://shopee.com.br/produto-xyz",
-    imagem: "https://cf.shopee.com.br/file/12345abcde",
-    preco: "R$ 1.299,99",
-    categoria: "Celulares & Acessórios"
-  },
-  {
-    nome: "Air Fryer Turbo 3.5L",
-    link: "https://shopee.com.br/airfryer-turbo",
-    imagem: "https://cf.shopee.com.br/file/abcde12345",
-    preco: "R$ 399,90",
-    categoria: "Eletrodomésticos"
-  },
-  {
-    nome: "Peça para Carro ABC",
-    link: "https://shopee.com.br/peca-carro-abc",
-    imagem: "https://cf.shopee.com.br/file/peca12345",
-    preco: "R$ 150,00",
-    categoria: "Peças de carro"
-  },
-  {
-    nome: "Fone Bluetooth X10",
-    link: "https://shopee.com.br/fone-bluetooth-x10",
-    imagem: "https://cf.shopee.com.br/file/fone12345",
-    preco: "R$ 89,90",
-    categoria: "Celulares & Acessórios"
-  },
-  {
-    nome: "Jogo Console Z",
-    link: "https://shopee.com.br/jogo-console-z",
-    imagem: "https://cf.shopee.com.br/file/jogo12345",
-    preco: "R$ 199,00",
-    categoria: "Videogames & Jogos"
-  },
-  {
-    nome: "Mixer Portátil",
-    link: "https://shopee.com.br/mixer-portatil",
-    imagem: "https://cf.shopee.com.br/file/mixer12345",
-    preco: "R$ 120,00",
-    categoria: "Utensílios de cozinha"
-  },
-  {
-    nome: "Lixo eletrônico reciclado",
-    link: "https://shopee.com.br/lixo-eletronico",
-    imagem: "https://cf.shopee.com.br/file/lixo12345",
-    preco: "R$ 50,00",
-    categoria: "Lixo eletrônico"
-  },
-  {
-    nome: "Batedeira Industrial",
-    link: "https://shopee.com.br/batedeira-industrial",
-    imagem: "https://cf.shopee.com.br/file/batedeira123",
-    preco: "R$ 450,00",
-    categoria: "Eletrodomésticos"
-  },
-  {
-    nome: "Peça para Carro XYZ",
-    link: "https://shopee.com.br/peca-carro-xyz",
-    imagem: "https://cf.shopee.com.br/file/peca67890",
-    preco: "R$ 300,00",
-    categoria: "Peças de carro"
-  },
-  {
-    nome: "Controle para Console Y",
-    link: "https://shopee.com.br/controle-console-y",
-    imagem: "https://cf.shopee.com.br/file/controle123",
-    preco: "R$ 180,00",
-    categoria: "Videogames & Jogos"
-  }
-];
+let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+
+// Alternância dos destaques animados
+const destaques = ["Itens em Promoção", "Descontos Especiais", "Achados do Dia"];
+let indexDestaque = 0;
+setInterval(() => {
+  document.getElementById("destaque-texto").textContent = destaques[indexDestaque];
+  indexDestaque = (indexDestaque + 1) % destaques.length;
+}, 3000);
 
 function renderProdutos(categoria = "Todos") {
   const container = document.getElementById("produtos");
@@ -142,3 +79,10 @@ function removerProduto(index) {
   renderProdutos();
   renderListaAdmin();
 }
+
+// Alternar entre modos (Celular / Computador)
+document.getElementById("toggle-mode")?.addEventListener("click", () => {
+  document.body.classList.toggle("modo-celular");
+  document.getElementById("toggle-mode").textContent =
+    document.body.classList.contains("modo-celular") ? "Modo Computador" : "Modo Celular";
+});
