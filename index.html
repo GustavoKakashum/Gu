@@ -9,28 +9,36 @@
 <body>
     <header>
         <h1>Garimpos do Gu</h1>
-        <p>Promoções e ofertas incríveis que você não pode perder!</p>
-        <nav>
-            <button onclick="filtrarCategoria('Todos')">Todos</button>
-            <button onclick="filtrarCategoria('Eletrodomésticos')">Eletrodomésticos</button>
-            <button onclick="filtrarCategoria('Utensílios de cozinha')">Utensílios de cozinha</button>
-            <button onclick="filtrarCategoria('Peças de carro')">Peças de carro</button>
-            <button onclick="filtrarCategoria('Celulares & Acessórios')">Celulares & Acessórios</button>
-            <button onclick="filtrarCategoria('Lixo eletrônico')">Lixo eletrônico</button>
-            <button onclick="filtrarCategoria('Videogames & Jogos')">Videogames & Jogos</button>
-        </nav>
         <div class="gear" onclick="window.location.href='admin.html'">⚙</div>
     </header>
-
-    <main>
-        <h2>Produtos em Destaque</h2>
-        <div id="produtos" class="produtos-grid"></div>
-    </main>
-
+    <section class="carousel">
+        <div class="carousel-container">
+            <img src="https://via.placeholder.com/1200x300?text=Promoção+1" alt="Promoção 1">
+            <img src="https://via.placeholder.com/1200x300?text=Promoção+2" alt="Promoção 2">
+            <img src="https://via.placeholder.com/1200x300?text=Promoção+3" alt="Promoção 3">
+        </div>
+    </section>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Categorias</h3>
+            <ul>
+                <li onclick="filtrarCategoria('Todos')">Todos</li>
+                <li onclick="filtrarCategoria('Eletrodomésticos')">Eletrodomésticos</li>
+                <li onclick="filtrarCategoria('Utensílios de cozinha')">Utensílios de cozinha</li>
+                <li onclick="filtrarCategoria('Peças de carro')">Peças de carro</li>
+                <li onclick="filtrarCategoria('Celulares & Acessórios')">Celulares & Acessórios</li>
+                <li onclick="filtrarCategoria('Lixo eletrônico')">Lixo eletrônico</li>
+                <li onclick="filtrarCategoria('Videogames & Jogos')">Videogames & Jogos</li>
+            </ul>
+        </aside>
+        <main class="products">
+            <h2>Produtos em Destaque</h2>
+            <div id="produtos" class="produtos-grid"></div>
+        </main>
+    </div>
     <footer>
         <p>&copy; 2025 Garimpos do Gu - Todos os direitos reservados.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
