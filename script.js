@@ -1,8 +1,4 @@
-let produtos = JSON.parse(localStorage.getItem('produtos')) || [
-    { nome: "Produto 1", link: "https://s.shopee.com.br/9AECadeRfK", imagem: "https://via.placeholder.com/250x200?text=Produto+1", preco: "R$ 199,90", categoria: "Eletrodomésticos" },
-    { nome: "Produto 2", link: "https://s.shopee.com.br/9pTtNwnua8", imagem: "https://via.placeholder.com/250x200?text=Produto+2", preco: "R$ 49,90", categoria: "Utensílios de cozinha" },
-    { nome: "Produto 3", link: "https://s.shopee.com.br/2VhIeSfo3Z", imagem: "https://via.placeholder.com/250x200?text=Produto+3", preco: "R$ 299,90", categoria: "Peças de carro" }
-];
+let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
 
 function renderProdutos(categoria = "Todos") {
     const container = document.getElementById('produtos');
@@ -41,7 +37,8 @@ function renderListaAdmin() {
     lista.innerHTML = '';
     produtos.forEach((p, i) => {
         lista.innerHTML += `
-            <li>${p.nome} - ${p.preco} (${p.categoria}) <button onclick="removerProduto(${i})">Remover</button></li>`;
+            <li>${p.nome} - ${p.preco} (${p.categoria}) 
+            <button onclick="removerProduto(${i})">Remover</button></li>`;
     });
 }
 
