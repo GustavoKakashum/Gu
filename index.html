@@ -2,31 +2,35 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Garimpos do Gu</title>
-                <link rel="stylesheet" href="style.css">
-                </head>
-                <body>
-                    <header>
-                            <h1>Garimpos do Gu</h1>
-                                    <p>Promoções e ofertas incríveis que você não pode perder!</p>
-                                        </header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garimpos do Gu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Garimpos do Gu</h1>
+        <p>Promoções e ofertas incríveis que você não pode perder!</p>
+        <nav>
+            <button onclick="filtrarCategoria('Todos')">Todos</button>
+            <button onclick="filtrarCategoria('Eletrodomésticos')">Eletrodomésticos</button>
+            <button onclick="filtrarCategoria('Utensílios de cozinha')">Utensílios de cozinha</button>
+            <button onclick="filtrarCategoria('Peças de carro')">Peças de carro</button>
+            <button onclick="filtrarCategoria('Celulares & Acessórios')">Celulares & Acessórios</button>
+            <button onclick="filtrarCategoria('Lixo eletrônico')">Lixo eletrônico</button>
+            <button onclick="filtrarCategoria('Videogames & Jogos')">Videogames & Jogos</button>
+        </nav>
+        <div class="gear" onclick="window.location.href='admin.html'">⚙</div>
+    </header>
 
-                                            <section class="banner">
-                                                    <div class="slide">🔥 Super promoções toda semana!</div>
-                                                            <div class="slide">💥 Garanta já seus produtos favoritos!</div>
-                                                                    <div class="slide">🚀 Novidades chegando em breve!</div>
-                                                                        </section>
+    <main>
+        <h2>Produtos em Destaque</h2>
+        <div id="produtos" class="produtos-grid"></div>
+    </main>
 
-                                                                            <main>
-                                                                                    <h2>Produtos em Destaque</h2>
-                                                                                            <div id="produtos" class="produtos-grid"></div>
-                                                                                                </main>
+    <footer>
+        <p>&copy; 2025 Garimpos do Gu - Todos os direitos reservados.</p>
+    </footer>
 
-                                                                                                    <footer>
-                                                                                                            <p>&copy; 2025 Garimpos do Gu - Todos os direitos reservados.</p>
-                                                                                                                </footer>
-
-                                                                                                                    <script src="script.js"></script>
-                                                                                                                    </body>
-                                                                                                                    </html>
+    <script src="script.js"></script>
+</body>
+</html>
