@@ -1,72 +1,67 @@
-// Produtos iniciais
 let produtos = JSON.parse(localStorage.getItem('produtos')) || [
-    { nome: "Produto 1", link: "https://s.shopee.com.br/9AECadeRfK" },
-        { nome: "Produto 2", link: "https://s.shopee.com.br/9pTtNwnua8" },
-            { nome: "Produto 3", link: "https://s.shopee.com.br/2VhIeSfo3Z" },
-                { nome: "Produto 4", link: "https://s.shopee.com.br/AA6jmXrRjN" },
-                    { nome: "Produto 5", link: "https://s.shopee.com.br/5Ai3pLO5Hy" },
-                        { nome: "Produto 6", link: "https://s.shopee.com.br/802FCXmtpJ" }
-                        ];
+    { nome: "Produto 1", link: "https://s.shopee.com.br/9AECadeRfK", imagem: "https://via.placeholder.com/250x200?text=Produto+1", preco: "R$ 199,90", categoria: "Eletrodomésticos" },
+    { nome: "Produto 2", link: "https://s.shopee.com.br/9pTtNwnua8", imagem: "https://via.placeholder.com/250x200?text=Produto+2", preco: "R$ 49,90", categoria: "Utensílios de cozinha" },
+    { nome: "Produto 3", link: "https://s.shopee.com.br/2VhIeSfo3Z", imagem: "https://via.placeholder.com/250x200?text=Produto+3", preco: "R$ 299,90", categoria: "Peças de carro" }
+];
 
-                        // Renderizar produtos na página principal
-                        function renderProdutos() {
-                            const container = document.getElementById('produtos');
-                                if (!container) return;
-                                    container.innerHTML = '';
-                                        produtos.forEach(p => {
-                                                container.innerHTML += `
-                                                            <div class="produto">
-                                                                            <h3>${p.nome}</h3>
-                                                                                            <a href="${p.link}" target="_blank">Comprar Agora</a>
-                                                                                                        </div>
-                                                                                                                `;
-                                                                                                                    });
-                                                                                                                    }
-                                                                                                                    renderProdutos();
+function renderProdutos(categoria = "Todos") {
+    const container = document.getElementById('produtos');
+    if (!container) return;
+    container.innerHTML = '';
+    produtos.filter(p => categoria === "Todos" || p.categoria === categoria).forEach(p => {
+        container.innerHTML += `
+            <div class="produto">
+                <img src="${p.imagem}" alt="${p.nome}">
+                <h3>${p.nome}</h3>
+                <p><strong>${p.categoria}</strong></p>
+                <p class="preco">${p.preco}</p>
+                <a href="${p.link}" target="_blank">Comprar Agora</a>
+            </div>
+        `;
+    });
+}
+renderProdutos();
 
-                                                                                                                    // Login do admin
-                                                                                                                    function login() {
-                                                                                                                        const user = document.getElementById('username').value;
-                                                                                                                            const pass = document.getElementById('password').value;
-                                                                                                                                if (user === "Kaka" && pass === "Kakashi1") {
-                                                                                                                                        document.getElementById('login-container').classList.add('hidden');
-                                                                                                                                                document.getElementById('admin-panel').classList.remove('hidden');
-                                                                                                                                                        renderListaAdmin();
-                                                                                                                                                            } else {
-                                                                                                                                                                    document.getElementById('login-error').textContent = "Usuário ou senha incorretos!";
-                                                                                                                                                                        }
-                                                                                                                                                                        }
+function filtrarCategoria(cat) { renderProdutos(cat); }
 
-                                                                                                                                                                        // Lista de produtos no admin
-                                                                                                                                                                        function renderListaAdmin() {
-                                                                                                                                                                            const lista = document.getElementById('lista-produtos');
-                                                                                                                                                                                lista.innerHTML = '';
-                                                                                                                                                                                    produtos.forEach((p, i) => {
-                                                                                                                                                                                            lista.innerHTML += `
-                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                                        ${p.nome} 
-                                                                                                                                                                                                                                        <button onclick="removerProduto(${i})">Remover</button>
-                                                                                                                                                                                                                                                    </li>
-                                                                                                                                                                                                                                                            `;
-                                                                                                                                                                                                                                                                });
-                                                                                                                                                                                                                                                                }
+function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if (user === "Kaka" && pass === "Kakashi1") {
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('admin-panel').classList.remove('hidden');
+        renderListaAdmin();
+    } else {
+        document.getElementById('login-error').textContent = "Usuário ou senha incorretos!";
+    }
+}
 
-                                                                                                                                                                                                                                                                // Adicionar produto
-                                                                                                                                                                                                                                                                document.getElementById('produto-form')?.addEventListener('submit', function(e) {
-                                                                                                                                                                                                                                                                    e.preventDefault();
-                                                                                                                                                                                                                                                                        const nome = document.getElementById('produto-nome').value;
-                                                                                                                                                                                                                                                                            const link = document.getElementById('produto-link').value;
-                                                                                                                                                                                                                                                                                produtos.push({ nome, link });
-                                                                                                                                                                                                                                                                                    localStorage.setItem('produtos', JSON.stringify(produtos));
-                                                                                                                                                                                                                                                                                        renderProdutos();
-                                                                                                                                                                                                                                                                                            renderListaAdmin();
-                                                                                                                                                                                                                                                                                                this.reset();
-                                                                                                                                                                                                                                                                                                });
+function renderListaAdmin() {
+    const lista = document.getElementById('lista-produtos');
+    lista.innerHTML = '';
+    produtos.forEach((p, i) => {
+        lista.innerHTML += `
+            <li>${p.nome} - ${p.preco} (${p.categoria}) <button onclick="removerProduto(${i})">Remover</button></li>`;
+    });
+}
 
-                                                                                                                                                                                                                                                                                                // Remover produto
-                                                                                                                                                                                                                                                                                                function removerProduto(index) {
-                                                                                                                                                                                                                                                                                                    produtos.splice(index, 1);
-                                                                                                                                                                                                                                                                                                        localStorage.setItem('produtos', JSON.stringify(produtos));
-                                                                                                                                                                                                                                                                                                            renderProdutos();
-                                                                                                                                                                                                                                                                                                                renderListaAdmin();
-                                                                                                                                                                                                                                                                                                                }
+document.getElementById('produto-form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('produto-nome').value;
+    const link = document.getElementById('produto-link').value;
+    const imagem = document.getElementById('produto-imagem').value;
+    const preco = document.getElementById('produto-preco').value;
+    const categoria = document.getElementById('produto-categoria').value;
+    produtos.push({ nome, link, imagem, preco, categoria });
+    localStorage.setItem('produtos', JSON.stringify(produtos));
+    renderProdutos();
+    renderListaAdmin();
+    this.reset();
+});
+
+function removerProduto(index) {
+    produtos.splice(index, 1);
+    localStorage.setItem('produtos', JSON.stringify(produtos));
+    renderProdutos();
+    renderListaAdmin();
+}
