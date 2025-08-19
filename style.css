@@ -59,8 +59,8 @@ ul li {background:#1e1e1e;padding:10px;margin:5px 0;border-radius:5px;}
 /* Modo celular forçado */
 body.modo-celular header {background:#333;}
 body.modo-celular .sidebar {width:100%;box-shadow:none;}
-body.modo-celular .produtos-grid {grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
-body.modo-celular .produto img {height:150px;}
+body.modo-celular .produtos-grid {grid-template-columns:repeat(auto-fit,minmax(90px,1fr));}
+body.modo-celular .produto img {height:90px;}
 
 /* Responsividade */
 @media (max-width:768px) {
